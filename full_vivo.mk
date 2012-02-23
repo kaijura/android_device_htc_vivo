@@ -31,6 +31,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from maguro device
 $(call inherit-product, device/htc/vivo/device.mk)
 
+# Softkey Rotation Script by St.Matt
+PRODUCT_COPY_FILES += \
+    device/htc/vivo/rotate_lights.sh:/system/etc/rotate_lights.sh
+
 # Set those variables here to overwrite the inherited values.
 PRODUCT_NAME := full_vivo
 PRODUCT_DEVICE := vivo
