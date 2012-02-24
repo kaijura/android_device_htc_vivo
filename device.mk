@@ -67,7 +67,6 @@ PRODUCT_COPY_FILES += \
     device/htc/vivo/idc/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc \
     device/htc/vivo/idc/cy8c-touchscreen.idc:system/usr/idc/cy8c-touchscreen.idc \
     device/htc/vivo/idc/elan-touchscreen.idc:system/usr/idc/elan-touchscreen.idc \
-    device/htc/vivo/idc/vivo-keypad.idc:system/usr/idc/vivo-keypad.idc
 
 # Keychars
 PRODUCT_COPY_FILES += \
@@ -182,3 +181,7 @@ $(call inherit-product, device/htc/vivo/media_htcaudio.mk)
 #$(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
 
 $(call inherit-product-if-exists, vendor/htc/vivo/device-vendor.mk)
+
+# Softkey Rotation Script
+PRODUCT_COPY_FILES += \
+    device/htc/vivo/rotate_lights.sh:/system/etc/rotate_lights.sh
