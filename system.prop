@@ -81,3 +81,8 @@ persist.sys.usb.config=mass_storage,adb
 persist.service.adb.enable=1
 dalvik.vm.dexopt-data-only=1
 ro.config.soundlock=true
+
+#For GooManager
+ro.goo.developerid=BHS
+ro.goo.rom=IceColdSandwich
+ro.goo.version=1
