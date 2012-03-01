@@ -16,6 +16,4 @@
 
 <!-- Vivo-specific Contacts app resources. -->
 <resources>
-    <!-- Enable the onscreen "Dial" button in the dialer. -->
-    <bool name="config_show_onscreen_dial_button">true</bool>
 </resources>

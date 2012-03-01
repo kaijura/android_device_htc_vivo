@@ -17,19 +17,18 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # The gps config appropriate for this device
-PRODUCT_COPY_FILES += \
-    device/htc/vivo/gps.conf:system/etc/gps.conf \
-    device/htc/vivo/apns-conf.xml:system/etc/apns-conf.xml
+
+PRODUCT_COPY_FILES += device/common/gps/gps.conf_EU:system/etc/gps.conf
 
 ## (1) First, the most specific values, i.e. the aspects that are specific to GSM
 
 PRODUCT_COPY_FILES += \
     device/htc/vivo/init.vivo.rc:root/init.vivo.rc \
-    device/htc/msm7x30-common/init.htc7x30.usb.rc:root/init.htc7x30.usb.rc \
     device/htc/vivo/ueventd.vivo.rc:root/ueventd.vivo.rc
 
 PRODUCT_COPY_FILES += \
-    frameworks/base/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml
+    frameworks/base/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 ## (2) Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/vivo/device-vendor.mk)
@@ -48,9 +47,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.umsdirtyratio=20
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/vivo/overlay
-
-PRODUCT_COPY_FILES += \
-    frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
 
 # gsm config xml file
 PRODUCT_COPY_FILES += \
@@ -179,10 +175,6 @@ $(call inherit-product, device/htc/msm7x30-common/msm7x30.mk)
 # htc audio settings
 $(call inherit-product, device/htc/vivo/media_htcaudio.mk)
 
-#$(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
+$(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
 
 $(call inherit-product-if-exists, vendor/htc/vivo/device-vendor.mk)
-
-#Softkey Rotation Script
-PRODUCT_COPY_FILES += \
-    device/htc/vivo/rotate_lights.sh:/system/etc/rotate_lights.sh
