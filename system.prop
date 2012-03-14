@@ -7,7 +7,7 @@ debug.fb.rgb565=0
 
 debug.sf.hw=1
 debug.composition.type=mdp
-#debug.enabletr=true
+debug.enabletr=false
 debug.qctwa.statusbar=1
 debug.qctwa.preservebuf=1
 
@@ -15,12 +15,13 @@ debug.qctwa.preservebuf=1
 com.qc.hardware=true
 com.qc.hdmi_out=false
 
+ro.max.fling_velocity=4000
+
 # Modify MMS APN retry timer from 5s to 2s.
 ro.gsm.2nd_data_retry_config=max_retries=3, 2000, 2000, 2000
 
-# system props for telephony/data
-ro.telephony.ril.v3=1
 rild.libpath=/system/lib/libhtc_ril.so
+ro.telephony.ril.v3=signalstrength
 
 ro.ril.ecc.HTC-GCC=999,112,997
 ro.ril.ecc.HTC-WWE=999
@@ -38,14 +39,16 @@ ro.ril.enable.dtm=1
 ro.ril.gprsclass=12
 ro.ril.hsdpa.category=10
 ro.ril.hsupa.category=6
-ro.ril.hsxpa=2
+ro.ril.hsxpa=3
 
 # Default network type.
 # 0 => WCDMA preferred.
 ro.telephony.default_network=0
 
 wifi.interface=wlan0
-wifi.supplicant_scan_interval=15
+wifi.supplicant_scan_interval=100
+
+windowsmgr.max_events_per_sec=240
 
 mobiledata.interfaces=gannet0,rmnet0,rmnet1,rmnet2
 
@@ -53,11 +56,16 @@ mobiledata.interfaces=gannet0,rmnet0,rmnet1,rmnet2
 # This is a 16.16 fixed point number
 ro.opengles.version=131072
 
+# This is a high density device with more memory, so larger vm heaps for it.
+dalvik.vm.heapstartsize=5m
+dalvik.vm.heapgrowthlimit=64m
+dalvik.vm.heapsize=64m
+
 # For the default value of agps
 ro.ril.def.agps.mode=2
 
 # For HSDPA low throughput
-ro.ril.disable.power.collapse=1
+ro.ril.disable.power.collapse=0
 
 # Vivo China NEL use
 ro.ril.update.vivo.acoustic=1
@@ -68,3 +76,12 @@ postprocess.denoise_level=5
 
 # Recording Audio Workaround
 ro.camera.sound.disabled=1
+
+# Define TCP buffer sizes
+net.tcp.buffersize.hsdpa=4094,87380,393216,4096,16384,110208
+
+#For USB mount
+persist.sys.usb.config=mass_storage,adb
+persist.service.adb.enable=1
+dalvik.vm.dexopt-data-only=1
+ro.config.soundlock=true

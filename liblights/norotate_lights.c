@@ -17,7 +17,6 @@
 #define LOG_TAG "lights"
 
 #include <cutils/log.h>
-#include <cutils/properties.h>
 
 #include <stdint.h>
 #include <string.h>
@@ -43,7 +42,6 @@ char const*const GREEN_LED_FILE = "/sys/class/leds/green/brightness";
 char const*const BLUE_LED_FILE = "/sys/class/leds/blue/brightness";
 
 char const*const BUTTON_P_FILE = "/sys/class/leds/button-backlight-portrait/brightness";
-char const*const BUTTON_L_FILE = "/sys/class/leds/button-backlight-landscape/brightness";
 
 char const*const AMBER_BLINK_FILE = "/sys/class/leds/amber/blink";
 char const*const GREEN_BLINK_FILE = "/sys/class/leds/green/blink";
@@ -204,20 +202,8 @@ static int set_light_buttons (struct light_device_t* dev,
 		struct light_state_t const* state) {
 	int err = 0;
 	int on = is_lit (state);
-    char orientprop[PROPERTY_VALUE_MAX];
 	pthread_mutex_lock (&g_lock);
-
-    if (property_get("sys.orientation.landscape", orientprop, NULL)
-            && strcmp(orientprop, "1") == 0)
-    {
-        err = write_int (BUTTON_L_FILE, state->color&0xff);
-        err = write_int (BUTTON_P_FILE, 0);
-    }
-    else
-    {
-    	err = write_int (BUTTON_P_FILE, state->color&0xff);
-        write_int (BUTTON_L_FILE, 0);
-    }
+	err = write_int (BUTTON_P_FILE, state->color&0xff);
 	pthread_mutex_unlock (&g_lock);
 
 	return 0;
@@ -331,4 +317,3 @@ const struct hw_module_t HAL_MODULE_INFO_SYM = {
 	.author = "Diogo Ferreira <diogo@underdev.org>",
 	.methods = &lights_module_methods,
 };
-
