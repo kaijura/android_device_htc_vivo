@@ -15,7 +15,7 @@ debug.qctwa.preservebuf=1
 com.qc.hardware=true
 com.qc.hdmi_out=false
 
-# Proximity
+#Proximity
 gsm.proximity.enable=true
 
 ro.max.fling_velocity=4000
