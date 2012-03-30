@@ -44,7 +44,7 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
 
 BOARD_HAVE_HTC_FFC := true
-BOARD_USE_REVERSE_FFC := false
+BOARD_USE_REVERSE_FFC := true
 
 # Workaround for Vivo's broken overlay scaling
 #BOARD_OVERLAY_MINIFICATION_LIMIT := 2
