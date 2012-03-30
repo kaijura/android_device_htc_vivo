@@ -9,11 +9,10 @@
 /dev/akm8975_daemon     0640    compass     system
 /dev/akm8975_aot        0640    compass     system
 
-#video - video fix suggested by twisted
-#/dev/msm_vidc_reg      0660    system      audio
-#/dev/msm_vidc_dec      0660    system      audio
-#/dev/msm_vidc_enc      0660    system      audio
-/dev/msm_vidc*		0660    system      graphics
+#video
+/dev/msm_vidc_reg      0660    system      audio
+/dev/msm_vidc_dec      0660    system      audio
+/dev/msm_vidc_enc      0660    system      audio
 
 #for audio
 /dev/htc-acdb           0660    system     audio
