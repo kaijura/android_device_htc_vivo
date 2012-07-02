@@ -5,20 +5,17 @@ ro.sf.lcd_density=240
 
 debug.fb.rgb565=0
 
-debug.sf.hw=1
-debug.composition.type=mdp
-debug.enabletr=false
-debug.qctwa.statusbar=1
-debug.qctwa.preservebuf=1
+debug.composition.type=c2d
+ro.sf.compbypass.enable=1
+dev.pm.dyn_samplingrate=0
+persist.sys.use_dithering=0
+debug.enabletr=true
 
 # cm qcom build lub
 com.qc.hardware=true
 com.qc.hdmi_out=false
 
-#Proximity
-gsm.proximity.enable=true
-
-ro.max.fling_velocity=4000
+ro.max.fling_velocity=7000
 
 # Modify MMS APN retry timer from 5s to 2s.
 ro.gsm.2nd_data_retry_config=max_retries=3, 2000, 2000, 2000
@@ -42,7 +39,7 @@ ro.ril.enable.dtm=1
 ro.ril.gprsclass=12
 ro.ril.hsdpa.category=10
 ro.ril.hsupa.category=6
-ro.ril.hsxpa=3
+ro.ril.hsxpa=2
 
 # Default network type.
 # 0 => WCDMA preferred.
@@ -88,3 +85,16 @@ persist.sys.usb.config=mass_storage,adb
 persist.service.adb.enable=1
 dalvik.vm.dexopt-data-only=1
 ro.config.soundlock=true
+
+ro.camera.preview=true
+
+ro.config.play.bootsound=1
+
+# Disable kernel error checking
+ro.kernel.android.checkjni=0
+
+# For Hardware Info under Settings/About
+ro.device.gpu=Adreno 205 MSM7x30
+ro.device.rear_cam=8.0MP
+ro.device.front_cam=1.3MP
+ro.device.screen_res=800x480
